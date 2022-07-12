@@ -28,3 +28,7 @@
         const jobSources = await JobSource.find();
         res.status(200).json({ message: "fetching data from local", jobSources });
         });
+
+# .env
+
+        MONGODB_URI=mongodb+srv://<databasename>:<passwords>@cluster.aaaa.mongodb.net>@cluster.aaaa.mongodb.net/<databasename>
