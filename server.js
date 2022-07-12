@@ -17,9 +17,10 @@ dotenv.config();
 //     }
 //   });
 
-const MONGODB_URI222 = "mongodb://localhost/bbc-job-manager";
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/bbc-job-manager";
 
-mongoose.connect(MONGODB_URI222, (err) => {
+mongoose.connect(MONGODB_URI, (err) => {
   if (err) {
     console.log({
       error: "Cannot connect to MongoDB database.",
@@ -37,7 +38,7 @@ app.get("/", (req, res) => {
 
 app.get("/job-sources-local", async (req, res) => {
   const jobSources = await JobSource.find();
-  res.status(200).json({ message: "fetching data from local", jobSources });
+  res.status(200).json({ message: "fetched data from local", jobSources });
 });
 
 // app.get("/job-sources-online", async (req, res) => {
